@@ -2,7 +2,7 @@
 
 ## tools
 
-- typscript =>type safty.
+- typescript =>type safty.
 - tailwind & shadcn for resposive disgine
 - next 15
 - react 19
