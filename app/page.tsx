@@ -12,6 +12,7 @@ interface IPageProps {
     location?: string;
     type?: string;
     remote?: string; // as any search parameters is string
+    page?: string; // for pagination
   };
 }
 // metadata
@@ -42,7 +43,7 @@ export function generateMetadata({
   };
 }
 export default async function Home({
-  searchParams: { q, location, type, remote },
+  searchParams: { q, location, type, remote, page },
 }: IPageProps) {
   const filterValues: JobFilterValues = await {
     q,
@@ -60,7 +61,10 @@ export default async function Home({
         {/* job filter sidebar */}
         <JobFilterSidebar defautlvalues={filterValues} />
 
-        <JobResults filterValues={filterValues} />
+        <JobResults
+          filterValues={filterValues}
+          page={page ? parseInt(page) : undefined}
+        />
       </section>
     </main>
   );
