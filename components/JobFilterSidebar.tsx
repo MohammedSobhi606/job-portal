@@ -43,7 +43,10 @@ async function JobFilterSidebar({
 
   return (
     <aside className="sticky top-0 md:top-20 h-fit rounded-lg border bg-background p-4 md:w-[260px] md:sticky">
-      <form action={filterJobs}>
+      <form
+        action={filterJobs}
+        key={JSON.stringify({ location, q, remote, type })} // to refrech the form inputs after evrey rerender and back it to initial state
+      >
         <div className="space-y-4">
           <Label htmlFor="q" className="flex justify-between w-full">
             Search
